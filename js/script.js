@@ -44,3 +44,13 @@ reviewForm?.addEventListener('submit',event=>{
   const body=encodeURIComponent(`Name: ${name}\nBewertung: ${stars}\n\nNachricht:\n${text}`);
   window.location.href=`mailto:vossdickegbr@gmail.com?subject=${subject}&body=${body}`;
 });
+
+// On-page Kontakt-Chat
+const chatPanel=document.getElementById('chatPanel');
+const chatOpenButtons=document.querySelectorAll('.chat-open');
+const chatClose=document.querySelector('.chat-close');
+function setChat(open){if(!chatPanel)return;chatPanel.classList.toggle('open',open);chatPanel.setAttribute('aria-hidden',String(!open));}
+chatOpenButtons.forEach(btn=>btn.addEventListener('click',()=>setChat(!chatPanel?.classList.contains('open'))));
+chatClose?.addEventListener('click',()=>setChat(false));
+document.addEventListener('keydown',event=>{if(event.key==='Escape')setChat(false);});
+document.addEventListener('click',event=>{const widget=document.querySelector('.chat-widget');if(!widget||!chatPanel?.classList.contains('open'))return;if(!widget.contains(event.target))setChat(false);});

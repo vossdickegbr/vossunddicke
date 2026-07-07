@@ -216,11 +216,30 @@
           <a href="tel:+4915144245033"><strong>Telefon / WhatsApp</strong><span>0151 44245033</span></a>
           <a href="https://instagram.com/vossunddicke_gbr" target="_blank" rel="noopener"><strong>Instagram</strong><span>@vossunddicke_gbr</span></a>
           </div>
-          <a class="btn primary full" href="https://wa.me/4915144245033" target="_blank" rel="noopener">Jetzt per WhatsApp anfragen</a>
+          <button class="btn primary full chat-open" type="button">Chat öffnen</button>
         </div>
       </div>
     </section>
   </main>
+
+
+  <div class="chat-widget" aria-live="polite">
+    <button class="chat-bubble chat-open" type="button" aria-label="Chat öffnen">
+      <span>💬</span><strong>Chat</strong>
+    </button>
+    <div class="chat-panel" id="chatPanel" aria-hidden="true">
+      <div class="chat-head">
+        <div><strong>Voss & Dicke Chat</strong><span>Antwort meist schnell per WhatsApp</span></div>
+        <button class="chat-close" type="button" aria-label="Chat schließen">×</button>
+      </div>
+      <div class="chat-body">
+        <div class="chat-message bot">Hallo 👋<br>Wie können wir bei Ihren Energieverträgen helfen?</div>
+        <a class="chat-option" href="https://wa.me/4915144245033?text=Hallo%20Voss%20%26%20Dicke%2C%20ich%20m%C3%B6chte%20meine%20Energievertr%C3%A4ge%20pr%C3%BCfen%20lassen." target="_blank" rel="noopener">Kostenfreie Prüfung anfragen</a>
+        <a class="chat-option" href="mailto:vossdickegbr@gmail.com?subject=Anfrage%20Energieberatung">Per E-Mail schreiben</a>
+        <a class="chat-option" href="https://instagram.com/vossunddicke_gbr" target="_blank" rel="noopener">Instagram öffnen</a>
+      </div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-grid">
@@ -230,8 +249,6 @@
     </div>
     <p class="legal">© <span id="year"></span> Voss & Dicke GbR. Offizieller Vertriebspartner der TeleSon Vertriebs GmbH.</p>
   </footer>
-
-  <a class="float-wa" href="https://wa.me/4915144245033" target="_blank" rel="noopener" aria-label="WhatsApp öffnen">WhatsApp</a>
-  <script src="js/script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
