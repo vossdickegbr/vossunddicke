@@ -138,6 +138,7 @@
         <div class="section-head center reveal">
           <p class="eyebrow">Kundenstimmen</p>
           <h2>Bewertungen, die Vertrauen schaffen.</h2>
+          <p>Echte Rückmeldungen, persönliche Erfahrungen und Eindrücke aus unserer Beratung.</p>
         </div>
         <div class="testimonial-grid">
           <article class="testimonial-card reveal">
@@ -156,12 +157,30 @@
             <span>Familie aus der Region</span>
           </article>
         </div>
-        <div class="review-cta reveal">
-          <div>
+        <div class="review-cta review-studio reveal">
+          <div class="review-studio-copy">
             <strong>Schon beraten worden?</strong>
-            <p>Schickt uns eure Rückmeldung – wir nehmen sie gerne später in diesen Bereich auf.</p>
+            <p>Teilen Sie uns Ihre Erfahrung mit. Ihre Rückmeldung hilft uns, unsere Beratung weiter zu verbessern.</p>
           </div>
-          <a class="btn primary" href="https://wa.me/4915144245033" target="_blank" rel="noopener">Bewertung per WhatsApp senden</a>
+          <form class="review-form" id="reviewForm">
+            <label>
+              <span>Name oder Initialen</span>
+              <input type="text" id="reviewName" placeholder="z. B. M. aus Bonn" required>
+            </label>
+            <label>
+              <span>Bewertung</span>
+              <select id="reviewStars" required>
+                <option value="★★★★★">★★★★★ 5 Sterne</option>
+                <option value="★★★★☆">★★★★☆ 4 Sterne</option>
+                <option value="★★★☆☆">★★★☆☆ 3 Sterne</option>
+              </select>
+            </label>
+            <label class="review-message">
+              <span>Ihre Nachricht</span>
+              <textarea id="reviewText" rows="3" placeholder="Wie haben Sie die Beratung erlebt?" required></textarea>
+            </label>
+            <button class="btn primary full" type="submit">Bewertung absenden</button>
+          </form>
         </div>
       </div>
     </section>
@@ -197,6 +216,13 @@
           <a href="tel:+4915144245033"><strong>Telefon / WhatsApp</strong><span>0151 44245033</span></a>
           <a href="https://instagram.com/vossunddicke_gbr" target="_blank" rel="noopener"><strong>Instagram</strong><span>@vossunddicke_gbr</span></a>
           <div><strong>Adresse</strong><span>Immenburgstr. 33<br>53121 Bonn</span></div>
+          <div class="map-card">
+            <strong>Standort</strong>
+            <div class="map-frame" aria-label="Karte: Immenburgstraße 33, 53121 Bonn">
+              <iframe title="Voss & Dicke GbR Standort" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Immenburgstr.%2033%2053121%20Bonn&output=embed"></iframe>
+            </div>
+            <a class="route-link" href="https://www.google.com/maps/dir/?api=1&destination=Immenburgstr.%2033%2C%2053121%20Bonn" target="_blank" rel="noopener">Route planen</a>
+          </div>
           <a class="btn primary full" href="https://wa.me/4915144245033" target="_blank" rel="noopener">Jetzt per WhatsApp anfragen</a>
         </div>
       </div>

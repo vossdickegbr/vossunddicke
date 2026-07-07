@@ -33,3 +33,14 @@ document.querySelectorAll('.reveal,[data-count]').forEach(el=>observer.observe(e
 
 const glow=document.querySelector('.cursor-glow');
 window.addEventListener('pointermove',e=>{if(!glow)return;glow.style.setProperty('--x',e.clientX+'px');glow.style.setProperty('--y',e.clientY+'px');});
+
+const reviewForm=document.getElementById('reviewForm');
+reviewForm?.addEventListener('submit',event=>{
+  event.preventDefault();
+  const name=document.getElementById('reviewName')?.value?.trim()||'Anonyme Bewertung';
+  const stars=document.getElementById('reviewStars')?.value||'★★★★★';
+  const text=document.getElementById('reviewText')?.value?.trim()||'';
+  const subject=encodeURIComponent('Kundenbewertung für Voss & Dicke GbR');
+  const body=encodeURIComponent(`Name: ${name}\nBewertung: ${stars}\n\nNachricht:\n${text}`);
+  window.location.href=`mailto:vossdickegbr@gmail.com?subject=${subject}&body=${body}`;
+});
