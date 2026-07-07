@@ -580,3 +580,34 @@ body::after{
 @keyframes chatPulse{0%,100%{transform:translateY(0);box-shadow:0 22px 60px rgba(0,0,0,.22),0 0 35px rgba(134,189,24,.28)}50%{transform:translateY(-4px);box-shadow:0 28px 74px rgba(0,0,0,.24),0 0 48px rgba(134,189,24,.38)}}
 @media(max-width:700px){.chat-widget{right:14px;bottom:14px}.chat-bubble{padding:13px 15px}.chat-panel{right:-2px;bottom:62px}}
 @media(prefers-reduced-motion:reduce){.chat-bubble{animation:none!important}}
+
+/* Premium Energie-Transfer: VD Logo → Chat */
+.energy-transfer{
+  --sx:50vw;--sy:50vh;--tx:80vw;--ty:80vh;--angle:0deg;--distance:460px;
+  position:fixed;left:0;top:0;width:var(--distance);height:120px;z-index:998;
+  transform:translate3d(var(--sx),var(--sy),0) rotate(var(--angle));
+  transform-origin:0 50%;pointer-events:none;opacity:0;filter:drop-shadow(0 0 18px rgba(134,189,24,.55));
+}
+.energy-transfer__svg{position:absolute;inset:0;overflow:visible}
+.energy-transfer__core,.energy-transfer__glow{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;stroke-dasharray:420;stroke-dashoffset:420}
+.energy-transfer__core{stroke:rgba(234,255,194,.96);stroke-width:1.3}
+.energy-transfer__glow{stroke:rgba(134,189,24,.70);stroke-width:5.5;filter:blur(6px)}
+.energy-transfer__particle{position:absolute;top:50%;left:50%;width:5px;height:5px;border-radius:50%;background:#dfff8a;box-shadow:0 0 18px rgba(134,189,24,.95);opacity:0}
+.energy-transfer__impact{position:fixed;left:var(--tx);top:var(--ty);width:18px;height:18px;border-radius:50%;transform:translate(-50%,-50%) scale(.2);border:1px solid rgba(190,255,92,.95);box-shadow:0 0 28px rgba(134,189,24,.75),inset 0 0 18px rgba(134,189,24,.45);opacity:0}
+.energy-transfer.is-active{opacity:1;animation:vdTransferHold 1.25s ease both}
+.energy-transfer.is-active .energy-transfer__core,.energy-transfer.is-active .energy-transfer__glow{animation:vdBoltDraw .72s cubic-bezier(.16,1,.3,1) .03s both,vdBoltFade .48s ease .76s forwards}
+.energy-transfer.is-active .energy-transfer__particle{animation:vdParticleShot .78s cubic-bezier(.16,1,.3,1) both}
+.energy-transfer.is-active .p1{--py:-18px;animation-delay:.11s}.energy-transfer.is-active .p2{--py:12px;animation-delay:.18s}.energy-transfer.is-active .p3{--py:-4px;animation-delay:.25s}
+.energy-transfer.is-active .energy-transfer__impact{animation:vdImpactRing .72s cubic-bezier(.16,1,.3,1) .62s both}
+.chat-widget.energy-hit .chat-bubble{animation:vdChatImpact .9s cubic-bezier(.16,1,.3,1) both;box-shadow:0 26px 82px rgba(0,0,0,.26),0 0 76px rgba(134,189,24,.70)}
+.chat-widget.energy-hit .chat-kicker{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+.chat-kicker{position:absolute;right:4px;bottom:62px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.84);border:1px solid rgba(134,189,24,.28);box-shadow:0 16px 48px rgba(134,189,24,.18);backdrop-filter:blur(18px);font-size:12px;font-weight:950;color:#41520e;letter-spacing:.01em;white-space:nowrap;opacity:0;transform:translateY(8px) scale(.96);filter:blur(4px);transition:opacity .55s ease,transform .75s cubic-bezier(.16,1,.3,1),filter .55s ease}
+.chat-head span{display:flex!important;align-items:center;gap:7px}.chat-head i{width:8px;height:8px;border-radius:50%;background:var(--green-2);box-shadow:0 0 16px rgba(182,226,58,.85);display:inline-block}
+@keyframes vdTransferHold{0%,100%{opacity:0}8%,78%{opacity:1}}
+@keyframes vdBoltDraw{to{stroke-dashoffset:0}}
+@keyframes vdBoltFade{to{opacity:0;filter:blur(3px)}}
+@keyframes vdParticleShot{0%{opacity:0;transform:translate3d(-180px,var(--py),0) scale(.35)}18%,70%{opacity:1}100%{opacity:0;transform:translate3d(210px,calc(var(--py) * -1),0) scale(1.2)}}
+@keyframes vdImpactRing{0%{opacity:0;transform:translate(-50%,-50%) scale(.25)}18%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(5.6)}}
+@keyframes vdChatImpact{0%{transform:translateY(0) scale(1)}22%{transform:translateY(-5px) scale(1.035)}48%{transform:translateY(2px) scale(.99)}72%{transform:translateY(-2px) scale(1.01)}100%{transform:translateY(0) scale(1)}}
+@media(max-width:700px){.chat-kicker{bottom:58px;right:0;font-size:11px}.energy-transfer{height:90px}.energy-transfer__glow{stroke-width:4.2}.chat-bubble strong{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.energy-transfer{display:none!important}.chat-kicker{opacity:1;transform:none;filter:none}.chat-widget.energy-hit .chat-bubble{animation:none!important}}

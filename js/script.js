@@ -54,3 +54,57 @@ chatOpenButtons.forEach(btn=>btn.addEventListener('click',()=>setChat(!chatPanel
 chatClose?.addEventListener('click',()=>setChat(false));
 document.addEventListener('keydown',event=>{if(event.key==='Escape')setChat(false);});
 document.addEventListener('click',event=>{const widget=document.querySelector('.chat-widget');if(!widget||!chatPanel?.classList.contains('open'))return;if(!widget.contains(event.target))setChat(false);});
+
+// Einmaliger Premium-Energieimpuls vom VD-Logo in den Chat nach der Welcome Animation
+const energyTransfer=document.querySelector('.energy-transfer');
+const chatWidget=document.querySelector('.chat-widget');
+const brandMark=document.querySelector('.brand-mark');
+const chatBubble=document.querySelector('.chat-bubble');
+let energyTransferPlayed=false;
+
+function playSoftPing(){
+  try{
+    const AudioContext=window.AudioContext||window.webkitAudioContext;
+    if(!AudioContext)return;
+    const ctx=new AudioContext();
+    const osc=ctx.createOscillator();
+    const gain=ctx.createGain();
+    osc.type='sine';
+    osc.frequency.setValueAtTime(740,ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(980,ctx.currentTime+.08);
+    gain.gain.setValueAtTime(.0001,ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(.035,ctx.currentTime+.012);
+    gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.18);
+    osc.connect(gain);gain.connect(ctx.destination);osc.start();osc.stop(ctx.currentTime+.2);
+  }catch(error){}
+}
+
+function triggerEnergyTransfer(){
+  if(energyTransferPlayed||!energyTransfer||!chatWidget||!brandMark||!chatBubble)return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  energyTransferPlayed=true;
+
+  const start=brandMark.getBoundingClientRect();
+  const target=chatBubble.getBoundingClientRect();
+  const sx=start.left+start.width*.58;
+  const sy=start.top+start.height*.52;
+  const tx=target.left+target.width*.48;
+  const ty=target.top+target.height*.50;
+  const dx=tx-sx;
+  const dy=ty-sy;
+  const distance=Math.max(Math.hypot(dx,dy),160);
+  const angle=Math.atan2(dy,dx)*180/Math.PI;
+
+  energyTransfer.style.setProperty('--sx',`${sx}px`);
+  energyTransfer.style.setProperty('--sy',`${sy-60}px`);
+  energyTransfer.style.setProperty('--tx',`${tx}px`);
+  energyTransfer.style.setProperty('--ty',`${ty}px`);
+  energyTransfer.style.setProperty('--distance',`${distance}px`);
+  energyTransfer.style.setProperty('--angle',`${angle}deg`);
+  energyTransfer.classList.add('is-active');
+
+  window.setTimeout(()=>{chatWidget.classList.add('energy-hit');playSoftPing();},620);
+  window.setTimeout(()=>energyTransfer.classList.remove('is-active'),1450);
+}
+
+window.addEventListener('load',()=>window.setTimeout(triggerEnergyTransfer,5400));
