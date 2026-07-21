@@ -611,3 +611,8 @@ body::after{
 @keyframes vdChatImpact{0%{transform:translateY(0) scale(1)}22%{transform:translateY(-5px) scale(1.035)}48%{transform:translateY(2px) scale(.99)}72%{transform:translateY(-2px) scale(1.01)}100%{transform:translateY(0) scale(1)}}
 @media(max-width:700px){.chat-kicker{bottom:58px;right:0;font-size:11px}.energy-transfer{height:90px}.energy-transfer__glow{stroke-width:4.2}.chat-bubble strong{font-size:13px}}
 @media(prefers-reduced-motion:reduce){.energy-transfer{display:none!important}.chat-kicker{opacity:1;transform:none;filter:none}.chat-widget.energy-hit .chat-bubble{animation:none!important}}
+
+
+/* Rechtliche Pflichtangaben, die vor Veröffentlichung ergänzt werden müssen */
+.legal-required{display:inline-block;color:#9b1c1c;background:#fff2f2;border:1px solid #fecaca;border-radius:8px;padding:3px 7px;font-weight:800;}
+.legal-box h2{scroll-margin-top:110px;}
