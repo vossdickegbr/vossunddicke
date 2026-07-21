@@ -616,3 +616,38 @@ body::after{
 /* Rechtliche Pflichtangaben, die vor Veröffentlichung ergänzt werden müssen */
 .legal-required{display:inline-block;color:#9b1c1c;background:#fff2f2;border:1px solid #fecaca;border-radius:8px;padding:3px 7px;font-weight:800;}
 .legal-box h2{scroll-margin-top:110px;}
+
+
+/* GRUENDUNGSHINWEIS START – kann nach der Gründungsphase entfernt werden */
+.gruendungshinweis {
+  background: #fff7d6;
+  border-top: 1px solid #e2c86d;
+  border-bottom: 1px solid #e2c86d;
+  color: #332b12;
+}
+.gruendungshinweis__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  text-align: center;
+}
+.gruendungshinweis__inner strong {
+  flex: 0 0 auto;
+}
+.gruendungshinweis__inner p {
+  margin: 0;
+  max-width: 980px;
+}
+@media (max-width: 760px) {
+  .gruendungshinweis__inner {
+    display: block;
+  }
+  .gruendungshinweis__inner strong {
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+}
+/* GRUENDUNGSHINWEIS ENDE */
