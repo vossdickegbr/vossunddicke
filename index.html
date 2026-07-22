@@ -88,7 +88,8 @@
           <p class="hero-lead">Wir prüfen Ihre Strom- und Gasverträge, erklären die Unterschiede ohne Fachchinesisch und begleiten Sie vom ersten Blick auf die Rechnung bis nach dem Wechsel.</p>
 
           <div class="hero-actions">
-            <a class="button button-primary" href="#kontakt">Kostenfreie Prüfung starten</a>
+            <button class="button button-primary" type="button" data-chat-open>Jetzt unverbindlich anfragen &amp; direkt chatten</button>
+            <a class="button button-secondary" href="#kontakt">WhatsApp &amp; E-Mail</a>
             <a class="button button-quiet" href="tel:+4915144245033">
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.2 3.4 9.7 3a1.7 1.7 0 0 1 1.8 1l1.2 2.9a1.7 1.7 0 0 1-.5 2l-1.4 1.1a13.7 13.7 0 0 0 3.3 3.3l1.1-1.4a1.7 1.7 0 0 1 2-.5l2.9 1.2a1.7 1.7 0 0 1 1 1.8l-.4 2.5a3.5 3.5 0 0 1-3.5 3c-7.4-.5-13.3-6.4-13.8-13.8a3.5 3.5 0 0 1 3-3.5Z"/></svg>
               0151 44245033
@@ -361,7 +362,15 @@
         <div class="contact-copy reveal">
           <p class="eyebrow eyebrow-light"><span></span> Kostenfreie Erstprüfung</p>
           <h2>Lassen Sie uns gemeinsam auf Ihren Vertrag schauen.</h2>
-          <p>Wählen Sie kurz aus, worum es geht. Danach können Sie uns mit einer passend vorbereiteten Nachricht über WhatsApp oder E-Mail kontaktieren.</p>
+          <p>Starten Sie direkt unseren kurzen Website-Chat oder wählen Sie weiterhin WhatsApp, E-Mail oder Telefon. Der automatische Assistent erklärt Ihnen in wenigen Augenblicken, wie es weitergeht.</p>
+
+          <button class="contact-chat-cta" type="button" data-chat-open>
+            <span class="contact-chat-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 4h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-8l-5.2 3.2c-.7.4-1.5-.1-1.5-.9V18A3 3 0 0 1 2 15V7a3 3 0 0 1 3-3Z"/></svg>
+            </span>
+            <span><strong>Jetzt unverbindlich anfragen</strong><small>Direkt im Website-Chat starten</small></span>
+            <span class="contact-chat-arrow" aria-hidden="true">→</span>
+          </button>
 
           <div class="direct-contact">
             <a href="tel:+4915144245033"><span>Telefon</span><strong>0151 44245033</strong></a>
@@ -402,6 +411,48 @@
       </div>
     </section>
   </main>
+
+  <div class="site-chat" data-site-chat hidden aria-hidden="true">
+    <div class="site-chat-backdrop" data-chat-close aria-hidden="true"></div>
+    <section class="chat-window" role="dialog" aria-modal="true" aria-labelledby="chat-title" aria-describedby="chat-status">
+      <header class="chat-header">
+        <div class="chat-avatar" aria-hidden="true">VD</div>
+        <div class="chat-header-copy">
+          <strong id="chat-title">Voss &amp; Dicke</strong>
+          <span><i aria-hidden="true"></i> Automatischer Assistent</span>
+        </div>
+        <button class="chat-close" type="button" data-chat-close aria-label="Chat schließen">×</button>
+      </header>
+
+      <div class="chat-body" data-chat-body aria-live="polite">
+        <div class="chat-day"><span>Heute</span></div>
+        <div class="chat-bubble chat-bubble-bot" data-chat-message="welcome" hidden>
+          <p>Herzlich willkommen bei Voss &amp; Dicke! Schön, dass Sie da sind. 👋</p>
+          <time data-chat-time></time>
+        </div>
+        <div class="chat-typing" data-chat-typing hidden aria-label="Der automatische Assistent schreibt">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="chat-bubble chat-bubble-bot" data-chat-message="info" hidden>
+          <p>Wir unterstützen Sie persönlich bei der Prüfung und Vermittlung von Strom- und Gasverträgen und bleiben auch nach einem Wechsel Ihre festen Ansprechpartner.</p>
+          <p>Für eine individuelle Beratung schreiben Sie unseren festen Ansprechpartnern direkt über WhatsApp.</p>
+          <time data-chat-time></time>
+        </div>
+        <div class="chat-actions" data-chat-actions hidden>
+          <a class="chat-whatsapp" href="https://wa.me/4915144245033?text=Hallo%20Kevin%20und%20Bj%C3%B6rn%2C%20ich%20komme%20%C3%BCber%20den%20Website-Chat%20und%20interessiere%20mich%20f%C3%BCr%20eine%20unverbindliche%20Beratung." target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a9.7 9.7 0 0 0-8.4 14.6L2 22l5.6-1.5A9.8 9.8 0 1 0 12 2Zm0 17.8a8 8 0 0 1-4.1-1.1l-.3-.2-3.3.9.9-3.2-.2-.3a8 8 0 1 1 7 3.9Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1-1.5-.7-2.5-1.3-3.5-3-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.6-.1 1.4-.6 1.6-1.1.2-.6.2-1 .2-1.1-.1-.1-.2-.2-.4-.3Z"/></svg>
+            Auf WhatsApp weiterschreiben
+          </a>
+          <a class="chat-email" href="mailto:vossdickegbr@gmail.com?subject=Unverbindliche%20Anfrage%20%C3%BCber%20den%20Website-Chat&body=Hallo%20Kevin%20und%20Bj%C3%B6rn%2C%20ich%20komme%20%C3%BCber%20den%20Website-Chat%20und%20interessiere%20mich%20f%C3%BCr%20eine%20unverbindliche%20Beratung.">Lieber per E-Mail schreiben</a>
+        </div>
+      </div>
+
+      <footer class="chat-footer">
+        <p id="chat-status">Automatische Erstinformation · keine Eingaben werden gespeichert</p>
+        <a href="datenschutz.html">Datenschutz</a>
+      </footer>
+    </section>
+  </div>
 
   <div class="mobile-contact-bar" aria-label="Schnellkontakt">
     <a href="tel:+4915144245033">Anrufen</a>
