@@ -6,6 +6,20 @@
   const navigation = document.querySelector('.site-nav');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const welcomeIntro = document.querySelector('[data-welcome-intro]');
+  if (welcomeIntro) {
+    const introDelay = prefersReducedMotion ? 350 : 3400;
+    const removeDelay = prefersReducedMotion ? 50 : 650;
+
+    window.setTimeout(() => {
+      welcomeIntro.classList.add('is-leaving');
+      document.documentElement.classList.remove('intro-running');
+      window.setTimeout(() => welcomeIntro.remove(), removeDelay);
+    }, introDelay);
+  } else {
+    document.documentElement.classList.remove('intro-running');
+  }
+
   const updateHeader = () => {
     if (header) header.classList.toggle('is-scrolled', window.scrollY > 18);
   };

@@ -3,6 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    document.documentElement.classList.add('js', 'intro-running');
+    window.setTimeout(() => document.documentElement.classList.remove('intro-running'), 4500);
+  </script>
   <title>Voss & Dicke GbR | Persönliche Energieberatung aus Bonn</title>
   <meta name="description" content="Wir prüfen Strom- und Gasverträge persönlich, verständlich und kostenfrei. Energieberatung für Privat- und Gewerbekunden aus Bonn und digital.">
   <meta name="theme-color" content="#17352c">
@@ -42,6 +46,17 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Direkt zum Inhalt</a>
+
+  <div class="welcome-intro" data-welcome-intro role="status" aria-label="Herzlich willkommen bei Voss und Dicke">
+    <div class="welcome-intro-glow" aria-hidden="true"></div>
+    <div class="welcome-intro-content">
+      <span class="welcome-intro-mark" aria-hidden="true">VD</span>
+      <p class="welcome-intro-kicker">Herzlich willkommen</p>
+      <p class="welcome-intro-title">Voss &amp; Dicke</p>
+      <p class="welcome-intro-subtitle">Persönliche Energieberatung</p>
+      <span class="welcome-intro-progress" aria-hidden="true"><i></i></span>
+    </div>
+  </div>
 
   <header class="site-header" data-header>
     <div class="container header-inner">
